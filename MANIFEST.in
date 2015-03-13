@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+recursive-include clusterchaos *
+global-exclude .gitignore
+global-exclude .gitmodules
+global-exclude .git

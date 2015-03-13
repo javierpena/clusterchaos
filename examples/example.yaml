@@ -1,0 +1,36 @@
+# Generic config values
+config:
+        # test_command supports the following substitutions
+        # - $name
+        test_command: "ping -c 1 $name"
+        # test_type must be one of single-node, all-down-simultaneous, all-down"
+        test_type: "single-node"
+        # post_poweroff_delay and post_poweron_delay in seconds
+        post_poweroff_delay: 1
+        post_poweron_delay:  1
+
+# Environment description
+# For this example, we will be using virtual machines. 
+# The command used to kill the nodes will be fence_virsh
+nodes:
+        - name: machine1
+          fence:
+                driver: virsh
+                IP : 127.0.0.1
+                user: root
+                password: password
+                additional_options: "-n machine1"
+        - name: machine2
+          fence:
+                driver: virsh
+                IP : 127.0.0.1
+                user: root
+                password: password
+                additional_options: "-n machine2"
+        - name: machine3
+          fence:
+                driver: virsh
+                IP : 127.0.0.1
+                user: root
+                password: password
+                additional_options: "-n machine3"
