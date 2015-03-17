@@ -76,7 +76,7 @@ def run_failover_test(config, node):
         result = utils.color_text('[FAILED]', 'red')
     else:
         result = utils.color_text('[OK]', 'green')
-        print ("Test for node " + node['name'] + " " + result)
+    print ("Test for node " + node['name'] + " " + result)
 
 
 def wait(wait_period):
