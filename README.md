@@ -11,18 +11,19 @@ To kill systems, it makes use of the **fence agents**, provided by
 
 ## Installation of clusterchaos
 
-   $ sudo yum -y install git fence-agents
-   $ git clone git://github.com/javierpena/clusterchaos
-   $ cd clusterchaos && sudo python setup.py install
+     $ sudo yum -y install git fence-agents
+     $ git clone git://github.com/javierpena/clusterchaos
+     $ cd clusterchaos && sudo python setup.py install
 
 ## Executing
 
 The basic command line is:
 
-   $ clusterchaos --config-file=/tmp/config.yml
+    $ clusterchaos --config-file=/tmp/config.yml
 
 The configuration file will use a YAML format, with the following fields:
 
+```yaml
    # Generic config values
    config:
            # test_command supports the following substitutions
@@ -55,6 +56,7 @@ The configuration file will use a YAML format, with the following fields:
                    user: root
                    password: password
                    additional_options: "-n machine3"
+```
 
 ## Debugging
 

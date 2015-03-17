@@ -1,0 +1,38 @@
+# This test will be executed against a 3-node OpenStack controller node cluster.
+# The cluster is formed by 3 Dell systems using iDRAC as fencing mechanism.
+# Generic config values
+config:
+        # test_command supports the following substitutions
+        # - $name
+        test_command: "/var/lib/tempest/run_tempest.sh -- tempest.scenario.test_minimum_basic"
+        # test_type must be one of single-node, all-down-simultaneous, all-down"
+        test_type: "single-node"
+        # post_poweroff_delay and post_poweron_delay in seconds
+        post_poweroff_delay: 90 
+        post_poweron_delay:  90
+
+# Environment description
+# For this example, we will be using virtual machines. 
+# The command used to kill the nodes will be fence_virsh
+nodes:
+        - name: host1
+          fence:
+                driver: ipmilan
+                IP : ipmi-host1
+                user: user
+                password: password
+                additional_options: "-P -C 3"
+        - name: host2
+          fence:
+                driver: ipmilan
+                IP : ipmi-host2
+                user: user
+                password: password
+                additional_options: "-P -C 3"
+        - name: host3
+          fence:
+                driver: ipmilan
+                IP : ipmi-host3
+                user: user
+                password: password
+                additional_options: "-P -C 3"
